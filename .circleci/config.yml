@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  newman:
+  build:
     docker:     
       - image: circleci/node    
     steps:
@@ -21,33 +21,4 @@ jobs:
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
-  ui_tests:
-    docker:     
-      - image: circleci/node-latest    
-    steps:
-      - checkout
-      - node/install-packages
-      - run:
-          name: Get previous results
-          command: |
-            export ARTIFACT_LINK="https://circleci.com/api/v2/project/github/michael120288/QA_Challenge/latest/artifacts"
-            curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eoq '(http|https)://[a-zA-Z0-9./?=_%:-]*' && wget $(curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*') -O allure-previous.zip
-            test -f allure-previous.zip && unzip allure-previous.zip -d allure-previous || echo "Archive not found"
-            ls -la
-      - run:
-          name: Run tests
-          command: |
-            npm run test
-            ls -la
-            test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
-            npm run report:generate
-            zip -r allure-report.zip allure-report
-      - run:
-          when: on_fail
-          name: Generate fail results
-          command: |
-            test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
-            npm run report:generate
-            zip -r allure-report.zip allure-report
-      - store_artifacts:
-          path: allure-report.zip
+  
