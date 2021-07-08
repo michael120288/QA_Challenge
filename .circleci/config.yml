@@ -1,11 +1,27 @@
-version: 2.1
-orbs:
-  node: corcleci/node@4.5.1 
+version: 2
 jobs:
   build:
-    executor: newman/postman-newman-docker
+    docker:
+      # using custom image, see .circleci/images/primary/Dockerfile
+      - image: circleci/node
+      
+    working_directory: ~/repo
+    
     steps:
       - checkout
-      - newman/newman-run:
-          collection: postman/TestAPI.postman_collection.json          
-          environment: postman/Local.postman_environment.json
+      - run:
+          name: NPM Ignore
+          command: 'sudo npm i -g npmignore'
+      # This should go into custom primary image, here's only for the sake of explanation
+      - run:
+          name: Install Newman
+          command: 'sudo npm install -g newman'
+          
+      - run:
+          name: Working Dir
+          command: 'ls -la'
+
+      # This should go into custom primary image, here's only for the sake of explanation
+      - run:
+          name: API Testing for Smoke Suite
+          command: 'newman run ./TestAPI.postman_collection.json  --environment ./Local.postman_environment.json -r cli'
