@@ -1,12 +1,23 @@
 version: 2.1
 jobs:
-  
-  insights_api_tests:
-    docker:
+  run_tests:
+    docker:  
       - image: circleci/node:latest
     steps:    
       - checkout
-      - run: 
+      - run:
+        name: Install nm dependecies
+        command: |
+          npm install --save
+      -run:
+        name: Run unit tests
+        command: | npx wdio run wdio.conf.js
+  insights_api_tests:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      -checkout
+      - run:        
         name: Install newman
         command: sudo npm install -g newman
       - run:
