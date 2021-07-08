@@ -1,18 +1,14 @@
 version: 2
 jobs:
   build:
-    docker:
-      # using custom image, see .circleci/images/primary/Dockerfile
-      - image: circleci/node
-      
-    working_directory: ~/repo
-    
+    docker:     
+      - image: circleci/node    
     steps:
       - checkout
       - run:
           name: NPM Ignore
           command: 'sudo npm i -g npmignore'
-      # This should go into custom primary image, here's only for the sake of explanation
+      # This should go into custom primary image
       - run:
           name: Install Newman
           command: 'sudo npm install -g newman'
@@ -21,7 +17,7 @@ jobs:
           name: Working Dir
           command: 'ls -la'
 
-      # This should go into custom primary image, here's only for the sake of explanation
+      # This should go into custom primary image
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
