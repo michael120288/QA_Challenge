@@ -1,25 +1,11 @@
 version: 2.1
+orbs:
+  newman: postman/newman@0.0.2
 jobs:
-  run_tests:
-    docker:  
-      - image: circleci/node:latest
-    steps:    
-      - checkout
-      - run:
-        name: Install nm dependecies
-        command: |
-          npm install --save
-      -run:
-        name: Run unit tests
-        command: | npx wdio run wdio.conf.js
-  insights_api_tests:
-    docker:
-      - image: circleci/node:latest
+  build:
+    executor: newman/postman-newman-docker
     steps:
-      -checkout
-      - run:        
-        name: Install newman
-        command: sudo npm install -g newman
-      - run:
-        name: Run Insights Api tests with newman
-        command: newman run postman/TestAPI.postman_collection.json -e postman/Local.postman_environment.json 
+      - checkout
+      - newman/newman-run:
+          collection: postman/TestAPI.postman_collection.json
+          environment: postman/Local.postman_environment.json
