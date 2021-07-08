@@ -21,6 +21,12 @@ jobs:
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
+  build2:
+    docker:     
+      - image: circleci/node:latest-browsers    
+    steps:
+      - checkout
+      - node/install-packages
       - run:
           name: Get previous results
           command: |
@@ -45,3 +51,10 @@ jobs:
             zip -r allure-report.zip allure-report
       - store_artifacts:
           path: allure-report.zip
+workflows:
+  version: 2
+
+  my_workflow:
+    jobs:
+      - build
+      - build2
