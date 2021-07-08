@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  newman: postman/newman@0.0.2
+  node: circleci/node@4.1
 jobs:
   build:
     executor: newman/postman-newman-docker
