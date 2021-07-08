@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "f4a7ecf8-0f4b-40d6-bbf9-d1644f49dd3c",
+		"name": "TestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Random Joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Your test name\", function () {    ",
+							"    pm.expect(jsonData.value).not.empty",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.chucknorris.io/jokes/random",
+					"protocol": "https",
+					"host": [
+						"api",
+						"chucknorris",
+						"io"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()",
+							"pm.test(\"Your test name\", function () {    ",
+							"    pm.expect(jsonData.length).to.eq(16)",
+							"    console.log(jsonData)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.chucknorris.io/jokes/categories",
+					"protocol": "https",
+					"host": [
+						"api",
+						"chucknorris",
+						"io"
+					],
+					"path": [
+						"jokes",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json().result",
+							"pm.test(\"Query contain the JSON\", function () {",
+							"    let x = jsonData.length   ",
+							"    let regex = new RegExp(pm.variables.get(\"query\"), \"gi\")",
+							"    let count = 0",
+							"    for(let i = 0; i < x; i++){",
+							"        if((jsonData[i].value).match(regex)){",
+							"            count++",
+							"            console.log(count)",
+							"        }",
+							"    }    ",
+							"    pm.expect(count).to.eq(x)   ",
+							"}); ",
+							"    console.log(jsonData)      ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.chucknorris.io/jokes/search?query={{query}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"chucknorris",
+						"io"
+					],
+					"path": [
+						"jokes",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{{query}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "query",
+			"value": ""
+		}
+	]
+}

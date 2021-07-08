@@ -1,0 +1,37 @@
+{
+  "name": "datis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio run wdio.conf.js",
+    "report:serve": "npx allure serve allure-results",
+    "report:generate": "npx allure generate allure-results -o allure-report --clean",
+    "report:open": "npx allure open allure-report",
+    "newman:test-run": "newman run postman/TestAPI.postman_collection.json -e postman/Local.postman_environment.json",
+    "newman:ganerate-report": "newman run postman/TestAPI.postman_collection.json -e postman/Local.postman_environment.json -r html",
+    "newman:open": "npx open newman"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.7.4",
+    "chai": "^4.3.4",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "@wdio/allure-reporter": "^7.7.3",
+    "@wdio/devtools-service": "^7.7.4",
+    "@wdio/local-runner": "^7.7.4",
+    "@wdio/mocha-framework": "^7.7.4",
+    "@wdio/spec-reporter": "^7.7.3",
+    "allure-commandline": "^2.13.8",
+    "html-dnd": "^1.2.1"
+  }
+}
