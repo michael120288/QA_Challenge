@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build 1:
+  build:
     docker:     
       - image: circleci/node    
     steps:
@@ -21,12 +21,6 @@ jobs:
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
-  build 2:
-    docker:
-      - image: circleci/node:latest-browsers
-    steps:
-      - checkout
-      - node/install-packages
       - run:
           name: Get previous results
           command: |
