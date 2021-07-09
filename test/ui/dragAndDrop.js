@@ -1,5 +1,5 @@
 import DragAndDropPage from './../pages/dragAndDrop'
-describe('Drag and Drop action', ()=> {
+describe('DRAG AND DROP ACTION', ()=> {
     before(async ()=>{
        await DragAndDropPage.open()
     })

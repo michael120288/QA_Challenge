@@ -1,6 +1,6 @@
 import DropDownList from './../pages/dropDownList';
 
-describe('Dropdown menu', ()=>{
+describe('DROPDOWN LIST', ()=>{
     before(async ()=>{
         await DropDownList.open();
     });

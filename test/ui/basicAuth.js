@@ -1,6 +1,6 @@
 import BasicAuthPage from '../pages/basicAuth'
 
-describe('Basic auth', ()=>{
+describe('BASIC AUTH', ()=>{
     before(async ()=>{
        await BasicAuthPage.open()
     })

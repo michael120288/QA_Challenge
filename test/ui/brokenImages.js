@@ -1,6 +1,6 @@
 import BrokenImagesPage from './../pages/brokenImages.page'
 
-describe('Tables', ()=> {
+describe('TABLES', ()=> {
     before(async ()=>{
         await BrokenImagesPage.open();
     })

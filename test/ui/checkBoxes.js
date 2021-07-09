@@ -1,6 +1,6 @@
 import CheckBoxPage from './../pages/checkBoxes'
 
-describe('Check box', ()=>{
+describe('CHECK BOX', ()=>{
     beforeEach(async ()=>{
         await CheckBoxPage.open()
     })
