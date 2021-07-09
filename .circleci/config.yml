@@ -38,7 +38,7 @@ jobs:
       - run:
           name: Run tests
           command: |            
-            npm test
+            npm install && npm test
             ls -la
             test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
             npm run report:generate
