@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/repo
     docker:     
       - image: circleci/node    
     steps:
@@ -22,8 +23,9 @@ jobs:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
   build2:
+    working_directory: ~/repo
     docker:     
-      - image: circleci/node:latest   
+      - image: circleci/node:14.16.1-browsers  
     steps:
       - checkout      
       - run:
@@ -35,8 +37,7 @@ jobs:
             ls -la     
       - run:
           name: Run tests
-          command: |
-            npm install
+          command: |            
             npm test
             ls -la
             test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
