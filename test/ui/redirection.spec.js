@@ -1,4 +1,4 @@
-import RedirectionPage from './../pages/redirection';
+import RedirectionPage from '../pages/redirection.page';
 
 describe('REDIRECTION', function() {
     before(async ()=>{

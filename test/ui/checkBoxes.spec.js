@@ -1,4 +1,4 @@
-import CheckBoxPage from './../pages/checkBoxes'
+import CheckBoxPage from '../pages/checkBoxes.page'
 
 describe('CHECK BOX', ()=>{
     beforeEach(async ()=>{

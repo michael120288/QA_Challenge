@@ -1,4 +1,4 @@
-import BasicAuthPage from '../pages/basicAuth'
+import BasicAuthPage from '../pages/basicAuth.page'
 
 describe('BASIC AUTH', ()=>{
     before(async ()=>{

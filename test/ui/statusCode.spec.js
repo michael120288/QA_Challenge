@@ -1,4 +1,4 @@
-import StatusCodePage from './../pages/statusCode';
+import StatusCodePage from '../pages/statusCode.page';
 
 describe('TESTS FOR BROKEN LINKS', function() {
     before(async ()=>{

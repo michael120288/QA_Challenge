@@ -1,4 +1,4 @@
-import DropDownList from './../pages/dropDownList';
+import DropDownList from '../pages/dropDownList.page';
 
 describe('DROPDOWN LIST', ()=>{
     before(async ()=>{

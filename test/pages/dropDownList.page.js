@@ -1,7 +1,7 @@
 import Page from './page';
 import dropDownValue from "../../data/dropDownList"
 
-class DropDownList extends Page {
+class DropDownListPage extends Page {
 
     get headerOfThePage() {return $('h3')}
     get dropDownMenu() {return $('#dropdown')}
@@ -46,4 +46,4 @@ class DropDownList extends Page {
         expect(text).toEqual(dropDownValue.option2)
     }
 }
-export default new DropDownList();
+export default new DropDownListPage();

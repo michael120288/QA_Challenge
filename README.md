@@ -1,5 +1,10 @@
 //QA_Challenge
 
+## Get repository
+
+Run command `git clone git@github.com:michael120288/QA_Challenge.git` with SSH key 
+or run `git clone https://github.com/michael120288/QA_Challenge.git` with https web url.
+
 ## Local setup
 
 Run `npm install`

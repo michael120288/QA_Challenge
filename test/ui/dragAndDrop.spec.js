@@ -1,4 +1,4 @@
-import DragAndDropPage from './../pages/dragAndDrop'
+import DragAndDropPage from '../pages/dragAndDrop.page'
 describe('DRAG AND DROP ACTION', ()=> {
     before(async ()=>{
        await DragAndDropPage.open()
