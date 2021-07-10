@@ -2,10 +2,10 @@ import BasicAuthPage from '../pages/basicAuth.page'
 
 describe('BASIC AUTH', ()=>{
     before(async ()=>{
-       await BasicAuthPage.open()
-    })
+       await BasicAuthPage.open();
+    });
 
     it('Popup authorization',  async ()=>{
-        await BasicAuthPage.browserAuth()
-    })
+        await BasicAuthPage.browserAuth();
+    });
 })

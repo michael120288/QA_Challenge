@@ -2,14 +2,14 @@ import Page from './page';
 
 class BrokenImagesPage extends Page {
 
-    get images() {return $$('.example>img')}
+    get images() {return $$('.example>img');}
 
     open () {
         super.open('/broken_images');
     }
 
     async imageIsBroken(){
-        let countBrokenImages = 0
+        let countBrokenImages = 0;
         const images = await this.images;
         for (let i = 0; i < images.length; i++) {
             let imageWidth = await browser.execute(el => {
@@ -20,8 +20,8 @@ class BrokenImagesPage extends Page {
                 countBrokenImages++
             }
         }
-        console.log('The page has ' + countBrokenImages + ' broken images')
-        expect(countBrokenImages).toEqual(countBrokenImages)
+        console.log('The page has ' + countBrokenImages + ' broken images');
+        expect(countBrokenImages).toEqual(countBrokenImages);
     }
 }
 
