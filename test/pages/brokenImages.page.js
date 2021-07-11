@@ -1,4 +1,5 @@
 import Page from './page';
+import brokenImages from "../../data/brokenImages";
 
 class BrokenImagesPage extends Page {
 
@@ -21,7 +22,7 @@ class BrokenImagesPage extends Page {
             }
         }
         console.log('The page has ' + countBrokenImages + ' broken images');
-        expect(countBrokenImages).toEqual(countBrokenImages);
+        expect(countBrokenImages).toEqual(brokenImages.two);
     }
 }
 
