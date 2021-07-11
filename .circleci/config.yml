@@ -21,7 +21,6 @@ jobs:
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
-
   build2:
     working_directory: ~/repo
     docker:     
