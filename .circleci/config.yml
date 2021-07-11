@@ -12,10 +12,7 @@ jobs:
             export ARTIFACT_LINK="https://circleci.com/api/v2/project/github/michael120288/QA_Challenge/latest/artifacts"
             curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eoq '(http|https)://[a-zA-Z0-9./?=_%:-]*' && wget $(curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*') -O newman-previous.zip
             test -f newman-previous.zip && unzip newman-previous.zip -d newman-previous || echo "Archive not found"
-            ls -la 
-      - run:
-          name: NPM Ignore
-          command: sudo npm i -g npm ignore
+            ls -la       
       
       - run:
           name: Install Newman
