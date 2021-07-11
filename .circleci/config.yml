@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: NPM Ignore
-          command: 'sudo npm i -g npmignore'
+          command: 'sudo npm i -g npm ignore'
       
       - run:
           name: Install Newman
@@ -21,6 +21,7 @@ jobs:
       - run:
           name: API Testing for Smoke Suite
           command: 'newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json -r cli'
+
   build2:
     working_directory: ~/repo
     docker:     

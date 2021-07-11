@@ -1,5 +1,11 @@
 const auth = {
     "header": "Basic Auth",
-    "data": "admin"
+    "login": "admin",
+    "password": "admin",
+    "wrongLogin": "login",
+    "wrongPassword": "password",
+    "unauthorized" : "Unauthorized",
+    "status401": 401
+
 }
 module.exports = auth;

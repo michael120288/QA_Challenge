@@ -8,4 +8,8 @@ describe('BASIC AUTH', ()=>{
     it('Popup authorization',  async ()=>{
         await BasicAuthPage.browserAuth();
     });
+
+    it('Popup authorization error',  async ()=>{
+        await BasicAuthPage.browserAuthError();
+    });
 })

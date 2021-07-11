@@ -7,14 +7,14 @@ exports.config = {
     ],
 
     exclude: [
-        // './test/ui/brokenImages.js',
-        // './test/ui/tables.js',
-        // './test/ui/dropDownList.js',
-        // './test/ui/dragAndDrop.js',
-        // './test/ui/checkBoxes.js',
-        // './test/ui/basicAuth.js',
-        // './test/ui/statusCode.js',
-        // './test/ui/redirection.js'
+        // './test/ui/brokenImages.spec.js',
+        // './test/ui/tables.spec.js',
+        // './test/ui/dropDownList.spec.js',
+        // './test/ui/dragAndDrop.spec.js',
+        // './test/ui/checkBoxes.spec.js',
+        // './test/ui/basicAuth.spec.js',
+        // './test/ui/statusCode.spec.js',
+        // './test/ui/redirection.spec.js'
     ],
 
     maxInstances: 1,
