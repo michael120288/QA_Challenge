@@ -27,7 +27,7 @@ jobs:
       
       - run:
           name: API Testing 
-          command: 
+          command: |
             newman run postman/TestAPI.postman_collection.json  --environment postman/Local.postman_environment.json
             ls -la
             test -d newman-previous && cp -r newman-previous/newman-report/history newman-results || echo "Previous report directory not found"
